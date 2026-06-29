@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Management System</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    margin:0;
+}
+header{
+    background:#007bff;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+.container{
+    width:90%;
+    max-width:700px;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+input,select,button{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+}
+th{
+    background:#007bff;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Attendance Management System</h1>
+</header>
+
+<div class="container">
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="text" id="roll" placeholder="Roll Number">
+
+<select id="status">
+<option>Present</option>
+<option>Absent</option>
+</select>
+
+<button onclick="addAttendance()">Add Attendance</button>
+
+<table id="table">
+<tr>
+<th>Name</th>
+<th>Roll No</th>
+<th>Status</th>
+</tr>
+</table>
+
+</div>
+
+<script>
+
+function addAttendance(){
+
+let name=document.getElementById("name").value;
+let roll=document.getElementById("roll").value;
+let status=document.getElementById("status").value;
+
+if(name=="" || roll==""){
+alert("Please fill all fields");
+return;
+}
+
+let table=document.getElementById("table");
+
+let row=table.insertRow();
+
+row.insertCell(0).innerHTML=name;
+row.insertCell(1).innerHTML=roll;
+row.insertCell(2).innerHTML=status;
+
+document.getElementById("name").value="";
+document.getElementById("roll").value="";
+}
+
+</script>
+
+</body>
+</html>
